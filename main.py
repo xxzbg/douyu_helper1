@@ -46,6 +46,25 @@ def run():
                 logger.info("荧光棒剩余：%s" % glow_nums)
                 logger.debug("------荧光棒捐赠结束------")
                 get_need_exp()
+            elif mode == 24422:
+                logger.debug("当前选择模式为:每人一根其他都给pigff")
+                room_list = get_room_list()
+                logger.info("房间id：%s" % room_list)
+                every_give = math.ceil(glow_nums / len(room_list))
+                left = int(glow_nums) - int(every_give) * (len(room_list) - 1)
+                logger.debug("------开始捐赠荧光棒------")
+                for room in room_list:
+                    # if room == room_list[-1]:
+                    #     glow_donate(left, room)
+                    # else:
+                    #     glow_donate(every_give, room)
+                    glow_donate(1, room)
+                left_num = get_own() - 2
+                glow_donate(left_num, 24422)
+                logger.info("荧光棒剩余：%s" % get_own())
+                logger.debug("------荧光棒捐赠结束------")
+                get_need_exp()
+                
             else:
                 logger.warning("配置错误,没有这种选项,请修改配置并重新执行")
         except Exception as e:
