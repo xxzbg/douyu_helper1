@@ -34,6 +34,7 @@ def run():
             elif mode == 0:
                 logger.debug("当前选择模式为:平均分配模式")
                 room_list = get_room_list()
+                logger.info("房间id：%s" % room_list)
                 every_give = math.ceil(glow_nums / len(room_list))
                 left = int(glow_nums) - int(every_give) * (len(room_list) - 1)
                 logger.debug("------开始捐赠荧光棒------")
