@@ -6,8 +6,7 @@ on:
       - master
   workflow_dispatch: 
   schedule:
-    - cron: '0 30 16 ? * 7 '
-
+    - cron: '30 14 * * 0'
 jobs:
   dy_auto_donate_helper:
     runs-on: ubuntu-latest
